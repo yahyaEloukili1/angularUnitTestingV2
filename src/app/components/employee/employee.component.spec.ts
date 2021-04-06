@@ -6,6 +6,7 @@ fdescribe('EmployeeComponent', () => {
   let component: EmployeeComponent;
   let fixture: ComponentFixture<EmployeeComponent>;
   let authService : AuthenticationService;
+  let h1 :HTMLElement
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ EmployeeComponent ],
@@ -18,6 +19,7 @@ fdescribe('EmployeeComponent', () => {
     fixture = TestBed.createComponent(EmployeeComponent);
    authService = TestBed.inject(AuthenticationService)
     component = fixture.componentInstance;
+    h1 = fixture.nativeElement.querySelector('h1');
     fixture.detectChanges();
   });
 
@@ -29,10 +31,9 @@ fdescribe('EmployeeComponent', () => {
   
 
   it('getSlarySlip should return the value "Salary Slip"', () => {
-    spyOn(authService,'checkAuthentication').and.returnValue(true)
-    let salSlip = component.getSlarySlip();
-    expect(salSlip).toEqual('Salary Slip')
-    expect(authService.checkAuthentication).toHaveBeenCalled();
+      component.getSalarySlip();
+      fixture.detectChanges();
+      expect(h1.textContent).toBe(component.salSlip);
   });
 
 });

@@ -7,6 +7,7 @@ import { AuthenticationService } from "../../services/authentication.service";
 })
 export class EmployeeComponent implements OnInit {
 
+  salSlip 
   constructor(private authenticationService: AuthenticationService) {
     
   }
@@ -15,11 +16,11 @@ export class EmployeeComponent implements OnInit {
   ngOnInit(): void {
     this.authenticationService.authenticate()
   }
-  getSlarySlip(){
+  getSalarySlip(){
     if(this.authenticationService.checkAuthentication()){
-      return 'Salary Slip';
+      this.salSlip =  'Salary Slip';
     }
-    return 'Not authenticated';
+    this.salSlip =  'Not authenticated';
   }
 
 }
