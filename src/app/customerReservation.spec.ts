@@ -1,20 +1,13 @@
 import { CustomerReservation } from "./customerReservation";
 describe('Customer reservation',()=>{
-    let custService : CustomerReservation
-    beforeEach(()=>{
-      custService = new CustomerReservation() 
+    it('testing',()=>{
+    //Arrange
+    let custReserve = new CustomerReservation();
+    //act
+    let isReserved = custReserve.reserveRoom();
+    //assert
+    expect(isReserved).toBeTruthy();
     })
-    afterEach(()=>{
-        custService = null
-    })
-    it('should register customer / increase current customer count by 1',()=>{
-   
-        let custCount = custService.registerCustomer();
-        expect(custCount).toEqual(11);
-    })
-    it('should un-register customer / dencrease current customer count by 1',()=>{
-   
-        let custCount = custService.unregisterCustomer(); 
-        expect(custCount).toEqual(9);
-    })
+
+
 })
