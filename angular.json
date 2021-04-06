@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angularTesing2"
+    }
+  },
+  "defaultProject": "angularTesing2",
+  "cli": {
+    "analytics": "f5cd4e62-ef60-4ec7-bca1-c831dc57786e"
+  }
 }
